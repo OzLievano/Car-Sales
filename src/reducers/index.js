@@ -1,3 +1,4 @@
+import {ADD_FEATURE} from '../actions/index';
 const initialState = {
     additionalPrice: 0,
     car: {
@@ -18,4 +19,15 @@ const initialState = {
 
 export const reducer =(state=initialState,action) => {
     console.log('ol: reducer: index.js state: action:',state,action)
+    // we need two action types 
+    // ADD FEATURE, REMOVE FEATURE 
+    switch(action.type){
+        case ADD_FEATURE:
+            return {
+                ...state,
+                features: [...state.features,action.payload]
+            }
+        default:
+            return state;
+    }
 }
